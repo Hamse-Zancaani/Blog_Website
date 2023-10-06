@@ -1,6 +1,6 @@
 const mongoose= require("mongoose")
 
-const commentSchmea=mongoose.Schema({
+const commentSchema=mongoose.Schema({
     comment:{
         type: String
     },
@@ -9,10 +9,12 @@ const commentSchmea=mongoose.Schema({
         ref:"User"
 
     },
-    blog:mongoose.Types.ObjectId,
-    ref:"blog"
+    blog:{
+        type:mongoose.Types.ObjectId,
+     ref:"blog"
+    }
 })
 
-const commentModel=mongoose.model("comment",commentSchmea)
+const commentModel=mongoose.model("comment",commentSchema)
 
 module.exports=commentModel

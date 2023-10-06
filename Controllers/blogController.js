@@ -3,17 +3,19 @@ const Blog= require('../Models/blogModel')
 exports.blogs=async(req,res)=>{
     // get all blog
 
-    try{
+    try {
+        //find all blogs from the database
+        const blogs = await Blog.find({});
+        //return two values found and blogs
+        //found has the amount of blogs found
+        //blogs has the data of the blogs
+        res.status(200).json({ found: blogs.length, blogs });
+      } catch (e) {
+        res.status(400).json({ message: "error" });
+      }
+    };
 
-        const blogs= await Blog.find({})
-        res.status(200).json(blogs)
 
-
-    }catch(e){
-        res.status(404).json({message:"oops!can't find the blogs"})
-    }
-
-}
 
 exports.blog=async(req,res)=>{
     // get single bog

@@ -11,6 +11,21 @@ exports.comments=async(req,res)=>{
         res.status(400).json({message:"error occured please try agin"})
     }
 }
+exports.comment=async(req,res)=>{
+
+    try{
+        const{id}=req.params
+          const singleComment= await comment.findById(id)
+          res.status(200).json(singleComment)
+  
+      
+  
+      }catch(e){
+          res.status(200).json({message:"oops! we could'nt find the comment"})
+      }
+      
+  }
+  
 
 
 

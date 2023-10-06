@@ -1,5 +1,6 @@
 const express= require('express');
 const app= express();
+const cors=require('cors')
 
 
 
@@ -11,7 +12,7 @@ const dotenv=require('dotenv')
 dotenv.config({path:"./.env"})
 
 require('./server')
-
+app.use(cors())
 //middlware
 
 
@@ -31,4 +32,4 @@ res.status(200).json({message:"hello zancoyy"})
 
 
 
-app.listen(3000, () => console.log('Server started on port 3000'));
+app.listen(8000, () => console.log('Server started on port 8000'));
